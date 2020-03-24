@@ -55,4 +55,29 @@ def extended_euclidean_algorithm(a: int, b: int) -> Tuple[int, int]:
     return beta - division * rest, alpha,
 
 
-if __name__ == '__main__': pass
+# Tests:
+
+
+from unittest import TestCase, main
+
+
+class EuclidTest(TestCase):
+    def test_ea(self):
+        self.assertEqual(euclidean_algorithm(432, 756), 108)
+        self.assertEqual(euclidean_algorithm(756, 432), 108)
+        self.assertRaises(ArithmeticError, euclidean_algorithm, -3, 132)
+        self.assertRaises(ArithmeticError, euclidean_algorithm, 132, -3)
+
+    def test_eea(self):
+        self.assertEqual(extended_euclidean_algorithm(5, 48), (-19, 2))
+        self.assertEqual(extended_euclidean_algorithm(48, 5), (-19, 2))
+        self.assertRaises(ArithmeticError, extended_euclidean_algorithm, -3, 132)
+        self.assertRaises(ArithmeticError, extended_euclidean_algorithm, 132, -3)
+
+    def test_both(self):
+        a, b, = 5, 48
+        alpha, beta, = extended_euclidean_algorithm(a, b)
+        self.assertEqual(a * alpha + b * beta, euclidean_algorithm(a, b))
+
+
+if __name__ == '__main__': main()
