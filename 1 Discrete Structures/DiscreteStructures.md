@@ -5,7 +5,8 @@
 ## Chapters
 - Set Theory
 - Graph Theory
+  + [DegreeSequence (script)](scripts/degree_sequence.py)
 - Logic
 - Combinatorics
 - Algebra
-  + [euclidean_algorithms.py](scripts/euclidean_algorithms.py)
+  + [Euclidean Algorithms (script)](scripts/euclidean_algorithms.py)
